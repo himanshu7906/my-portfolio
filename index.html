@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himanshu Kashyap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/20z9UliLNgfNlgEw/1G3uS2p1y5lG0pGv5S2nN5wP6i5o2k8r0s8+s5o2qg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .light body {
+            background-color: #f0f4f8; /* A very light, modern gray-blue */
+            color: #1a202c; /* Dark text */
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .light .section-title {
+            color: #1f2937; /* Even darker blue for title */
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #f687b3; /* A vibrant pink/rose accent */
+            border-radius: 9999px;
+        }
+
+        /* Card backgrounds based on mode */
+        .light .card-bg-main { background-color: #ffffff; }
+        .light .card-bg-skill { background-color: #e2e8f0; }
+        .light .card-bg-project { background-color: #e0f7fa; }
+        .light .card-bg-cert { background-color: #ebf8ff; }
+        .light .card-bg-exp { background-color: #f7fafc; }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Generic animation classes based on keyframes */
+        .animate-on-scroll {
+            opacity: 0;
+        }
+        .animate-on-scroll.is-visible {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .animate-zoom-in.is-visible {
+            animation: zoomIn 0.8s ease-out forwards;
+        }
+
+        /* New Animated Gradient Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 10%, rgba(246, 135, 179, 0.2) 0%, transparent 20%),
+                        radial-gradient(circle at 90% 90%, rgba(144, 205, 244, 0.2) 0%, transparent 20%),
+                        radial-gradient(circle at 50% -10%, rgba(100, 255, 218, 0.2) 0%, transparent 20%);
+            background-size: 300% 300%;
+            animation: gradient-shift 15s ease infinite;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .light body::before {
+            opacity: 0.3;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Adjusted text colors for better readability in light mode */
+        .text-gray-700 {
+            color: #4b5563; /* Darker gray for light mode */
+        }
+        .text-gray-800 {
+            color: #1f2937; /* Very dark gray for headings and main text */
+        }
+        .text-blue-800 {
+            color: #1e40af; /* Darker blue for headings in cards */
+        }
+        .text-blue-200 {
+            color: #93c5fd; /* A brighter blue for dark mode headings */
+        }
+
+        .text-gray-600 {
+            color: #a0aec0; /* Lighter gray for dates */
+        }
+        
+        .text-rose-600 {
+            color: #f6ad55; /* A vibrant orange for project icons */
+        }
+        .text-indigo-800 {
+            color: #81e6d9; /* A vibrant teal for certification headings */
+        }
+    </style>
+</head>
+<body class="text-gray-800 bg-gray-900 text-gray-300">
+
+    <!-- Header Section with Profile Picture and Animation -->
+    <header class="bg-gradient-to-r from-blue-700 to-blue-500 shadow-lg py-12 text-white transition-colors duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
+            <div class="flex items-center space-x-4 animate-on-load">
+                <img class="w-24 h-24 rounded-full border-4 border-white shadow-lg transform transition-transform duration-500 hover:scale-110" src="https://placehold.co/150x150/f687b3/ffffff?text=HK" alt="Himanshu Kashyap">
+                <div class="space-y-1">
+                    <h1 class="text-4xl font-bold">Himanshu Kashyap</h1>
+                    <p class="mt-1 text-xl font-light">Full-Stack Developer | Generative AI Enthusiast</p>
+                </div>
+            </div>
+            <div class="mt-6 sm:mt-0 flex flex-wrap justify-center sm:justify-end items-center gap-3 text-sm font-medium">
+                <span class="inline-flex items-center space-x-1 hover:text-rose-200 transition-colors duration-200"><i class="fas fa-map-marker-alt text-blue-200"></i><span>Aligarh, India</span></span>
+                <span class="inline-flex items-center space-x-1 hover:text-rose-200 transition-colors duration-200"><i class="fas fa-envelope text-blue-200"></i><span>himanshu2001kashyap@gmail.com</span></span>
+                <a href="https://www.linkedin.com/in/himanshukashyap7906" target="_blank" class="hover:text-rose-200 transition-colors duration-200 flex items-center space-x-1">
+                    <i class="fab fa-linkedin text-white"></i>
+                </a>
+                <a href="https://himanshu2001kashyap.github.io/resume/Himanshu_Kashyap_Resume.pdf" download="Himanshu_Kashyap_Resume.pdf" class="bg-white text-blue-700 font-semibold py-2 px-4 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300 inline-flex items-center space-x-2">
+                    <i class="fas fa-download"></i>
+                    <span>Download CV</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8 space-y-12">
+
+        <!-- Professional Summary Section -->
+        <section class="card-bg-main p-8 rounded-xl shadow-md transform transition-transform hover:scale-[1.01] duration-300 animate-on-scroll" data-animation="fadeIn">
+            <h2 class="text-3xl font-bold section-title">Professional Summary</h2>
+            <p class="text-gray-700 leading-relaxed text-lg">
+                As an MCA student and aspiring Full-Stack Developer, I am skilled in building scalable applications using **React.js, Node.js, and Python**. My experience spans API integration, data visualization, and leveraging AI/ML technologies for enhanced development workflows. I am certified in Full-Stack Development, Cybersecurity, and Generative AI, with a strong foundation in a variety of modern tools and frameworks.
+            </p>
+        </section>
+
+        <!-- Skills Section with Icons and Staggered Animation -->
+        <section class="card-bg-main p-8 rounded-xl shadow-md transform transition-transform hover:scale-[1.01] duration-300 animate-on-scroll" data-animation="fadeIn">
+            <h2 class="text-3xl font-bold section-title">Skills</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card-bg-skill p-4 rounded-lg shadow-inner transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn">
+                    <div class="flex items-center space-x-2 mb-2 text-blue-800">
+                        <i class="fas fa-code text-blue-800 h-6 w-6"></i>
+                        <h3 class="font-bold text-lg">Languages & Frameworks</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fab fa-python text-xl text-blue-500 mr-2"></i>Python</li>
+                        <li><i class="fab fa-js-square text-xl text-yellow-500 mr-2"></i>JavaScript</li>
+                        <li><i class="fab fa-react text-xl text-blue-400 mr-2"></i>React.js</li>
+                        <li><i class="fas fa-sitemap text-xl text-gray-600 mr-2"></i>Next.js</li>
+                        <li><i class="fab fa-node-js text-xl text-green-500 mr-2"></i>Node.js</li>
+                        <li><i class="fas fa-server text-xl text-gray-600 mr-2"></i>Express.js</li>
+                        <li><i class="fas fa-cogs text-xl text-green-700 mr-2"></i>Django</li>
+                        <li><i class="fas fa-link text-xl text-blue-500 mr-2"></i>LangChain</li>
+                    </ul>
+                </div>
+                <div class="card-bg-skill p-4 rounded-lg shadow-inner transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn" data-delay="100">
+                    <div class="flex items-center space-x-2 mb-2 text-blue-800">
+                        <i class="fas fa-database text-blue-800 h-6 w-6"></i>
+                        <h3 class="font-bold text-lg">Databases</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fas fa-leaf text-xl text-green-600 mr-2"></i>MongoDB</li>
+                        <li><i class="fas fa-database text-xl text-blue-600 mr-2"></i>MySQL</li>
+                        <li><i class="fas fa-table text-xl text-blue-700 mr-2"></i>SQL</li>
+                        <li><i class="fas fa-cube text-xl text-purple-600 mr-2"></i>VectorDB</li>
+                    </ul>
+                </div>
+                <div class="card-bg-skill p-4 rounded-lg shadow-inner transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn" data-delay="200">
+                    <div class="flex items-center space-x-2 mb-2 text-blue-800">
+                        <i class="fas fa-robot text-blue-800 h-6 w-6"></i>
+                        <h3 class="font-bold text-lg">GenAI Models</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fas fa-brain text-xl text-purple-600 mr-2"></i>Gemini</li>
+                        <li><i class="fas fa-robot text-xl text-gray-500 mr-2"></i>ChatGPT</li>
+                        <li><i class="fas fa-microchip text-xl text-green-700 mr-2"></i>Claude</li>
+                    </ul>
+                </div>
+                <div class="card-bg-skill p-4 rounded-lg shadow-inner transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn" data-delay="300">
+                    <div class="flex items-center space-x-2 mb-2 text-blue-800">
+                        <i class="fas fa-hands-helping text-blue-800 h-6 w-6"></i>
+                        <h3 class="font-bold text-lg">Soft Skills</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fas fa-bolt text-indigo-500 mr-2"></i>Quick Learner</li>
+                        <li><i class="fas fa-balance-scale text-indigo-500 mr-2"></i>Decision-Making</li>
+                        <li><i class="fas fa-headphones-alt text-indigo-500 mr-2"></i>Active Listener</li>
+                        <li><i class="fas fa-handshake text-indigo-500 mr-2"></i>Collaboration</li>
+                    </ul>
+                </div>
+                <div class="card-bg-skill p-4 rounded-lg shadow-inner transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn" data-delay="400">
+                    <div class="flex items-center space-x-2 mb-2 text-blue-800">
+                        <i class="fas fa-wrench text-blue-800 h-6 w-6"></i>
+                        <h3 class="font-bold text-lg">Tools</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fab fa-git-alt text-xl text-orange-600 mr-2"></i>Git</li>
+                        <li><i class="fab fa-docker text-xl text-blue-500 mr-2"></i>Docker</li>
+                        <li><i class="fab fa-linux text-xl text-gray-700 mr-2"></i>Linux</li>
+                        <li><i class="fas fa-tools text-xl text-yellow-500 mr-2"></i>Postman</li>
+                        <li><i class="fas fa-laptop-code text-xl text-blue-500 mr-2"></i>VS Code</li>
+                        <li><i class="fas fa-flask text-xl text-green-700 mr-2"></i>Jupyter Notebook</li>
+                    </ul>
+                </div>
+                <div class="card-bg-skill p-4 rounded-lg shadow-inner transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn" data-delay="500">
+                    <div class="flex items-center space-x-2 mb-2 text-blue-800">
+                        <i class="fas fa-brain text-blue-800 h-6 w-6"></i>
+                        <h3 class="font-bold text-lg">Domains</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li><i class="fas fa-link text-xl text-purple-600 mr-2"></i>API Integration</li>
+                        <li><i class="fas fa-robot text-xl text-gray-500 mr-2"></i>AI/ML</li>
+                        <li><i class="fas fa-lock text-xl text-green-700 mr-2"></i>GenAI</li>
+                        <li><i class="fas fa-shield-alt text-xl text-blue-500 mr-2"></i>Networking & Security </li>
+                        <li><i class="fas fa-chart-line text-xl text-orange-500 mr-2"></i>Data Visualization</li>
+                        <li><i class="fas fa-star-of-life text-xl text-purple-400 mr-2"></i>AI-assisted Development</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="card-bg-main p-8 rounded-xl shadow-md transform transition-transform hover:scale-[1.01] duration-300 animate-on-scroll" data-animation="fadeIn">
+            <h2 class="text-3xl font-bold section-title">Experience</h2>
+            <div class="space-y-8">
+                <div class="card-bg-exp p-6 rounded-lg shadow-inner transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="font-bold text-xl text-blue-800">Software Developer Intern</h3>
+                        <p class="text-gray-600 text-sm">May 2025 - Present</p>
+                    </div>
+                    <p class="text-gray-700 mb-4">Sofyrus Technologies | Aligarh, India</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                        <li>Developed Fintegra, a financial data integration platform combining QuickBooks, Zoho, and Xero.</li>
+                        <li>Integrated APIs, built the React.js frontend, and managed data visualization.</li>
+                        <li>Used AI tools to enhance coding efficiency and reduce debugging time.</li>
+                    </ul>
+                </div>
+                <div class="card-bg-exp p-6 rounded-lg shadow-inner transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn" data-delay="100">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="font-bold text-xl text-blue-800">EduSkill Google AI-ML Virtual Internship</h3>
+                        <p class="text-gray-600 text-sm">Jul 2024 - Sep 2024</p>
+                    </div>
+                    <p class="text-gray-700 mb-4">AICTE</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                        <li>Gained hands-on experience with ML and DL models for real-world use cases.</li>
+                    </ul>
+                </div>
+                <div class="card-bg-exp p-6 rounded-lg shadow-inner transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn" data-delay="200">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="font-bold text-xl text-blue-800">EduSkills Network Security Associate Internship</h3>
+                        <p class="text-gray-600 text-sm">Jan 2024 - Mar 2024</p>
+                    </div>
+                    <p class="text-gray-700 mb-4">AICTE</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                        <li>Gained hands-on experience in network security fundamentals and threat prevention.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section with Icons and Staggered Animation -->
+        <section class="card-bg-main p-8 rounded-xl shadow-md transform transition-transform hover:scale-[1.01] duration-300 animate-on-scroll" data-animation="fadeIn">
+            <h2 class="text-3xl font-bold section-title">Projects</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div class="card-bg-project p-6 rounded-lg shadow-inner flex items-start space-x-4 transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn">
+                    <i class="fas fa-robot text-rose-600 w-10 h-10"></i>
+                    <div>
+                        <h3 class="font-bold text-xl">MediBot</h3>
+                        <p class="text-gray-700 mt-1">AI medical assistant using LangChain, Vector DB, ChatGPT LLM, and Python.</p>
+                    </div>
+                </div>
+                <div class="card-bg-project p-6 rounded-lg shadow-inner flex items-start space-x-4 transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn" data-delay="100">
+                    <i class="fas fa-lock text-rose-600 w-10 h-10"></i>
+                    <div>
+                        <h3 class="font-bold text-xl">Password Manager (MERN)</h3>
+                        <p class="text-gray-700 mt-1">A CRUD-based password storage application built with MongoDB, Express.js, React, and Node.js.</p>
+                    </div>
+                </div>
+                <div class="card-bg-project p-6 rounded-lg shadow-inner flex items-start space-x-4 transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn" data-delay="200">
+                    <i class="fas fa-blog text-rose-600 w-10 h-10"></i>
+                    <div>
+                        <h3 class="font-bold text-xl">Blog App (MERN + JWT + Multer)</h3>
+                        <p class="text-gray-700 mt-1">A role-based platform with robust file upload functionality.</p>
+                    </div>
+                </div>
+                <div class="card-bg-project p-6 rounded-lg shadow-inner flex items-start space-x-4 transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn" data-delay="300">
+                    <i class="fas fa-heartbeat text-rose-600 w-10 h-10"></i>
+                    <div>
+                        <h3 class="font-bold text-xl">Heart Disease & Mental Wellness Prediction</h3>
+                        <p class="text-gray-700 mt-1">A project achieving 95% accuracy with Random Forest, demonstrating strong data science skills.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Certifications & Education Section -->
+        <section class="card-bg-main p-8 rounded-xl shadow-md transform transition-transform hover:scale-[1.01] duration-300 animate-on-scroll" data-animation="fadeIn">
+            <h2 class="text-3xl font-bold section-title">Certifications & Education</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div class="card-bg-cert p-4 rounded-lg shadow-inner transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn">
+                    <div class="flex items-center space-x-2 mb-2 text-indigo-800">
+                        <i class="fas fa-award h-6 w-6"></i>
+                        <h3 class="font-bold text-lg">Certifications</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-1 ml-4">
+                        <li class="flex items-start space-x-2"><i class="fas fa-check text-indigo-500 mt-1"></i><span>Full Stack Developer Bootcamp - GeeksforGeeks</span></li>
+                        <li class="flex items-start space-x-2"><i class="fas fa-check text-indigo-500 mt-1"></i><span>Career Essentials in Generative AI - Microsoft & LinkedIn</span></li>
+                        <li class="flex items-start space-x-2"><i class="fas fa-check text-indigo-500 mt-1"></i><span>Advanced Diploma in Information Technology (ADIT)</span></li>
+                        <li class="flex items-start space-x-2"><i class="fas fa-check text-indigo-500 mt-1"></i><span>Big Data (NPTEL)</span></li>
+                        <li class="flex items-start space-x-2"><i class="fas fa-check text-indigo-500 mt-1"></i><span>Introduction To Machine Learning, Data Analytics Essential (Cisco)</span></li>
+                        <li class="flex items-start space-x-2"><i class="fas fa-check text-indigo-500 mt-1"></i><span>Accenture and Deloitte Job Simulation By Forage</span></li>
+                        <li class="flex items-start space-x-2"><i class="fas fa-check text-indigo-500 mt-1"></i><span>TCS Career Edge Young Professional</span></li>
+                    </ul>
+                </div>
+                <div class="card-bg-cert p-4 rounded-lg shadow-inner transform transition-transform hover:scale-105 duration-300 animate-on-scroll" data-animation="zoomIn" data-delay="100">
+                    <div class="flex items-center space-x-2 mb-2 text-emerald-800">
+                        <i class="fas fa-university h-6 w-6"></i>
+                        <h3 class="font-bold text-lg">Education</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-1 ml-4">
+                        <li class="flex items-start space-x-2"><i class="fas fa-book text-emerald-500 mt-1"></i><span>MCA - Galgotias University (2023-2025)</span></li>
+                        <li class="flex items-start space-x-2"><i class="fas fa-book text-emerald-500 mt-1"></i><span>BCA - Dr. Bhimrao Ambedkar University (2020-2023)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Publications Section -->
+        <section class="card-bg-main p-8 rounded-xl shadow-md transform transition-transform hover:scale-[1.01] duration-300 animate-on-scroll" data-animation="fadeIn">
+            <h2 class="text-3xl font-bold section-title">Publications</h2>
+            <div class="space-y-4">
+                <p class="text-gray-700">
+                    <a href="http://www.jetir.org/view?paper=JETIR2501427" target="_blank" class="text-blue-600 hover:underline">Depression Detection Using Machine Learning & Neural Networks - JETIR</a>
+                </p>
+            </div>
+        </section>
+        
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-center py-6 mt-12">
+        <div class="container mx-auto">
+            <p class="text-sm">&copy; 2025 Himanshu Kashyap. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Intersection Observer for animations
+            const observerOptions = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const animationType = entry.target.dataset.animation;
+                        const delay = parseInt(entry.target.dataset.delay || 0);
+
+                        setTimeout(() => {
+                            entry.target.classList.add("is-visible");
+                        }, delay);
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+
+</body>
+</html>
